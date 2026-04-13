@@ -1,0 +1,16 @@
+{
+  "name": "ecovault",
+  "version": "1.0.0",
+  "description": "EcoVault – Full-Stack MERN E-Waste Recycling Platform",
+  "scripts": {
+    "install:all":  "cd server && npm install && cd ../client && npm install",
+    "dev":          "concurrently \"cd server && npm run dev\" \"cd client && npm run dev\"",
+    "dev:server":   "cd server && npm run dev",
+    "dev:client":   "cd client && npm run dev",
+    "build":        "cd client && npm run build",
+    "start":        "cd server && npm start"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

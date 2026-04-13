@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Shield background -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d2e1e"/>
+      <stop offset="100%" stop-color="#062215"/>
+    </linearGradient>
+    <linearGradient id="grn" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#10d97e"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="#020917"/>
+  <!-- Shield shape -->
+  <path d="M256 48L80 128v128c0 105 74 196 176 224 102-28 176-119 176-224V128L256 48z" fill="url(#bg)" stroke="#10d97e" stroke-width="8"/>
+  <!-- Recycle arrows (simplified flat) -->
+  <path d="M190 220l66-60 66 60h-36v60h-60v-60h-36z" fill="none" stroke="#10d97e" stroke-width="18" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M256 340v-60" stroke="#10d97e" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="256" cy="258" r="22" fill="#10d97e" opacity=".15" stroke="#10d97e" stroke-width="6"/>
+  <!-- EV letters -->
+  <text x="256" y="310" font-family="Arial,sans-serif" font-weight="900" font-size="90" text-anchor="middle" fill="#10d97e" opacity=".9">EV</text>
+</svg>

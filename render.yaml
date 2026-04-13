@@ -1,0 +1,76 @@
+services:
+  # ── Backend: Node/Express API ──────────────────────────────────────────
+  - type: web
+    name: ecovault-server
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGO_URI
+        sync: false          # set manually in Render dashboard
+      - key: CLIENT_URL
+        sync: false          # paste your frontend Render URL here after deploy
+      - key: FIREBASE_PROJECT_ID
+        sync: false
+      - key: FIREBASE_CLIENT_EMAIL
+        sync: false
+      - key: FIREBASE_PRIVATE_KEY
+        sync: false          # paste full key with literal \n characters
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: EMAILJS_SERVICE_ID
+        sync: false          # copy from VITE_EJS_SVC client env var
+      - key: EMAILJS_TEMPLATE_ID
+        sync: false          # copy from VITE_EJS_TMPL client env var
+      - key: EMAILJS_PUBLIC_KEY
+        sync: false          # copy from VITE_EJS_PUB client env var
+      - key: EMAILJS_PRIVATE_KEY
+        sync: false          # get from emailjs.com → Account → Security → Private Key
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+
+  # ── Frontend: Vite / React Static Site ────────────────────────────────
+  - type: web
+    name: ecovault-client
+    runtime: static
+    rootDir: client
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_URL
+        sync: false          # paste your backend Render URL e.g. https://ecovault-server.onrender.com/api
+      - key: VITE_FIREBASE_API_KEY
+        sync: false
+      - key: VITE_FIREBASE_AUTH_DOMAIN
+        sync: false
+      - key: VITE_FIREBASE_PROJECT_ID
+        sync: false
+      - key: VITE_FIREBASE_STORAGE_BUCKET
+        sync: false
+      - key: VITE_FIREBASE_MESSAGING_SENDER_ID
+        sync: false
+      - key: VITE_FIREBASE_APP_ID
+        sync: false
+      - key: VITE_EJS_PUB
+        sync: false
+      - key: VITE_EJS_SVC
+        sync: false
+      - key: VITE_EJS_TMPL
+        sync: false
+      - key: VITE_RAZORPAY_KEY_ID
+        sync: false
+      - key: VITE_ADMIN_EMAIL
+        sync: false
